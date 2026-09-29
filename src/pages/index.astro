@@ -1,0 +1,91 @@
+---
+import { getCollection } from 'astro:content';
+import NoteRow from '../components/NoteRow.astro';
+import ProjectRow from '../components/ProjectRow.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { projects } from '../data/projects';
+
+const notes = (await getCollection('notes')).sort((left, right) => left.data.order - right.data.order);
+---
+
+<BaseLayout
+  title="Erol Senol"
+  description="Frontend engineer working with TypeScript, React and Vue, focused on performance, design systems and scalable architecture."
+>
+  <main id="main-content">
+    <section class="hero site-width" aria-labelledby="hero-title">
+      <div class="hero__copy">
+        <h1 id="hero-title">I build thoughtful frontend systems.</h1>
+        <p>
+          Frontend engineer working with TypeScript, React and Vue, focused on performance,
+          design systems and scalable architecture.
+        </p>
+        <a class="text-link hero__link" href="#work">Explore selected work</a>
+        <p class="hero__expertise">TypeScript <span>·</span> React <span>·</span> Vue</p>
+      </div>
+      <div class="hero-mark" aria-hidden="true">
+        <span class="hero-mark__e">E</span>
+        <span class="hero-mark__s">S</span>
+      </div>
+    </section>
+
+    <section class="work-section site-width section-rule" id="work" aria-labelledby="work-title">
+      <div class="work-section__intro">
+        <h2 class="section-title" id="work-title">Selected work</h2>
+        <p>A selection of public projects, built around clear interfaces and dependable foundations.</p>
+      </div>
+      <ol class="project-list">
+        {projects.map((project) => <ProjectRow project={project} />)}
+      </ol>
+    </section>
+
+    <section class="notes-section site-width" id="notes" aria-labelledby="notes-title">
+      <div class="notes-section__intro">
+        <h2 class="section-title" id="notes-title">Notes</h2>
+        <p>Short notes on tools, systems, and the decisions that shape them.</p>
+      </div>
+      <ol class="note-list">
+        {notes.map((note) => (
+          <NoteRow
+            title={note.data.title}
+            description={note.data.description}
+            href={`/notes/${note.id}/`}
+          />
+        ))}
+      </ol>
+    </section>
+
+    <section class="about-section site-width section-rule" id="about" aria-labelledby="about-title">
+      <div class="about-section__copy">
+        <h2 class="section-title" id="about-title">About</h2>
+        <p>
+          I’m Erol, a frontend engineer working with TypeScript, React, and Vue. I’m interested in
+          performance, design systems, and scalable frontend architecture.
+        </p>
+      </div>
+      <div class="about-section__focus">
+        <p class="about-section__location">Istanbul, Türkiye</p>
+        <ul>
+          <li>Frontend architecture</li>
+          <li>Design systems</li>
+          <li>Web performance</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="contact-section site-width section-rule" id="contact" aria-labelledby="contact-title">
+      <h2 class="section-title" id="contact-title">Get in touch</h2>
+      <div class="contact-section__details">
+        <p>For product work, collaboration, or a technical conversation, reach me by email or LinkedIn.</p>
+        <ul>
+          <li><a href="mailto:erolsnl@gmail.com">Email <span aria-hidden="true">↗</span></a></li>
+          <li>
+            <a href="https://www.linkedin.com/in/erol-senol/" target="_blank" rel="noreferrer">
+              LinkedIn <span aria-hidden="true">↗</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

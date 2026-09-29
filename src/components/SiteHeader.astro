@@ -1,0 +1,26 @@
+---
+interface Props {
+  active?: 'work' | 'notes' | 'about' | 'contact';
+}
+
+const { active } = Astro.props;
+const links = [
+  { label: 'Work', href: '/#work', key: 'work' },
+  { label: 'Notes', href: '/#notes', key: 'notes' },
+  { label: 'About', href: '/#about', key: 'about' },
+] as const;
+---
+
+<header class="site-header">
+  <div class="site-width site-header__inner">
+    <a class="site-header__brand" href="/" aria-label="Erol Senol home">Erol Senol</a>
+    <nav class="site-nav" aria-label="Main navigation">
+      {links.map((link) => (
+        <a href={link.href} aria-current={active === link.key ? 'location' : undefined}>
+          {link.label}
+        </a>
+      ))}
+      <a class="site-nav__contact" href="/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
