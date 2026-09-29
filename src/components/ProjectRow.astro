@@ -11,10 +11,8 @@ const { project } = Astro.props;
 <li class="project-row">
   <h3 class="project-row__name">{project.name}</h3>
   <p class="project-row__description">{project.description}</p>
-  <div class="project-row__meta">
-    <p class="project-row__technologies">{project.technologies.join(' · ')}</p>
-    <a href={project.repositoryUrl} target="_blank" rel="noreferrer">
-      View repository <span aria-hidden="true">↗</span>
-    </a>
-  </div>
+  <p class="project-row__technologies">{project.technologies.join(' · ')}</p>
+  <a class="project-row__link" href={project.repositoryUrl} target="_blank" rel="noreferrer">
+    View repository <span aria-hidden="true">↗</span>
+  </a>
 </li>

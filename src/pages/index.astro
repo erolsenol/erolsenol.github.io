@@ -10,26 +10,28 @@ const notes = (await getCollection('notes')).sort((left, right) => left.data.ord
 
 <BaseLayout
   title="Erol Senol"
-  description="Frontend engineer working with TypeScript, React and Vue, focused on performance, design systems and scalable architecture."
+  description="Frontend engineer building thoughtful frontend systems with TypeScript, React, and Vue."
 >
   <main id="main-content">
     <section class="hero site-width" aria-labelledby="hero-title">
       <div class="hero__copy">
-        <h1 id="hero-title">I build thoughtful frontend systems.</h1>
-        <p>
-          Frontend engineer working with TypeScript, React and Vue, focused on performance,
-          design systems and scalable architecture.
+        <h1 id="hero-title">Erol Senol</h1>
+        <p class="hero__role">Frontend Engineer</p>
+        <p class="hero__summary">
+          I build thoughtful frontend systems with TypeScript, React, and Vue.
         </p>
-        <a class="text-link hero__link" href="#work">Explore selected work</a>
-        <p class="hero__expertise">TypeScript <span>·</span> React <span>·</span> Vue</p>
-      </div>
-      <div class="hero-mark" aria-hidden="true">
-        <span class="hero-mark__e">E</span>
-        <span class="hero-mark__s">S</span>
+        <div class="hero__actions">
+          <a class="action-link action-link--primary" href="#work">
+            Explore selected work <span aria-hidden="true">→</span>
+          </a>
+          <a class="action-link" href="#contact">
+            Get in touch <span aria-hidden="true">→</span>
+          </a>
+        </div>
       </div>
     </section>
 
-    <section class="work-section site-width section-rule" id="work" aria-labelledby="work-title">
+    <section class="work-section site-width" id="work" aria-labelledby="work-title">
       <div class="work-section__intro">
         <h2 class="section-title" id="work-title">Selected work</h2>
         <p>A selection of public projects, built around clear interfaces and dependable foundations.</p>
@@ -55,7 +57,7 @@ const notes = (await getCollection('notes')).sort((left, right) => left.data.ord
       </ol>
     </section>
 
-    <section class="about-section site-width section-rule" id="about" aria-labelledby="about-title">
+    <section class="about-section site-width" id="about" aria-labelledby="about-title">
       <div class="about-section__copy">
         <h2 class="section-title" id="about-title">About</h2>
         <p>
@@ -73,7 +75,7 @@ const notes = (await getCollection('notes')).sort((left, right) => left.data.ord
       </div>
     </section>
 
-    <section class="contact-section site-width section-rule" id="contact" aria-labelledby="contact-title">
+    <section class="contact-section site-width" id="contact" aria-labelledby="contact-title">
       <h2 class="section-title" id="contact-title">Get in touch</h2>
       <div class="contact-section__details">
         <p>For product work, collaboration, or a technical conversation, reach me by email or LinkedIn.</p>
