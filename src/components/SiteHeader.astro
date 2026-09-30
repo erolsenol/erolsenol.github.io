@@ -2,12 +2,13 @@
 import Icon from './Icon.astro';
 
 interface Props {
-  active?: 'work' | 'notes' | 'about' | 'contact';
+  active?: 'work' | 'expertise' | 'notes' | 'about' | 'contact';
 }
 
 const { active } = Astro.props;
 const links = [
   { label: 'Work', href: '/#work', key: 'work' },
+  { label: 'Approach', href: '/#expertise', key: 'expertise' },
   { label: 'Notes', href: '/#notes', key: 'notes' },
   { label: 'About', href: '/#about', key: 'about' },
 ] as const;
