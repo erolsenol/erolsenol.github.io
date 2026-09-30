@@ -1,4 +1,6 @@
 ---
+import Icon from './Icon.astro';
+
 interface Props {
   active?: 'work' | 'notes' | 'about' | 'contact';
 }
@@ -23,7 +25,7 @@ const links = [
           {link.label}
         </a>
       ))}
-      <a class="site-nav__contact" href="/#contact">Let’s talk <span aria-hidden="true">↗</span></a>
+      <a class="site-nav__contact" href="/#contact">Let’s talk <Icon name="arrow-up-right" size={14} /></a>
     </nav>
   </div>
 </header>

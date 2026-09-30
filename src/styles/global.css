@@ -896,6 +896,9 @@ a:focus-visible {
 }
 
 .catalog-art__bar span {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
   padding: 5px 7px;
   border-radius: 2px;
   background: #c44d36;

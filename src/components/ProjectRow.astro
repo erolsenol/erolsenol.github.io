@@ -1,5 +1,6 @@
 ---
 import type { Project } from '../data/projects';
+import Icon from './Icon.astro';
 
 interface Props {
   project: Project;
@@ -17,7 +18,7 @@ const { project, index } = Astro.props;
           <div class="mailer-art__back"></div>
           <div class="mailer-art__window">
             <div class="mailer-art__top"><span></span><span></span><span></span><b>typedmailer</b></div>
-            <div class="mailer-art__message"><span class="mailer-art__icon">↗</span><span class="mailer-art__line"></span><span class="mailer-art__line mailer-art__line--short"></span></div>
+            <div class="mailer-art__message"><span class="mailer-art__icon"><Icon name="paper-plane-tilt" size={14} /></span><span class="mailer-art__line"></span><span class="mailer-art__line mailer-art__line--short"></span></div>
           </div>
           <span class="mailer-art__label">ONE API · 7 PROVIDERS</span>
         </div>
@@ -35,7 +36,7 @@ const { project, index } = Astro.props;
       {project.visual === 'catalog' && (
         <div class="catalog-art">
           <div class="catalog-art__sidebar"><b>studio</b><span></span><span></span><span></span><i></i></div>
-          <div class="catalog-art__main"><div class="catalog-art__bar"><b>Products</b><span>＋ Add product</span></div><div class="catalog-art__tiles"><i></i><i></i><i></i></div><div class="catalog-art__lines"><i></i><i></i><i></i></div></div>
+          <div class="catalog-art__main"><div class="catalog-art__bar"><b>Products</b><span><Icon name="plus" size={8} /> Add product</span></div><div class="catalog-art__tiles"><i></i><i></i><i></i></div><div class="catalog-art__lines"><i></i><i></i><i></i></div></div>
         </div>
       )}
       <span class="project-card__index">0{index}</span>
@@ -43,7 +44,7 @@ const { project, index } = Astro.props;
     <div class="project-card__body">
       <div class="project-card__heading">
         <h3 class="project-card__name">{project.name}</h3>
-        <span class="project-card__arrow" aria-hidden="true">↗</span>
+        <Icon name="arrow-up-right" size={22} class="project-card__arrow" />
       </div>
       <p class="project-card__description">{project.description}</p>
       <ul class="project-card__technologies" aria-label="Technologies">

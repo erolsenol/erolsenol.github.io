@@ -4,6 +4,7 @@ import NoteRow from '../components/NoteRow.astro';
 import ProjectRow from '../components/ProjectRow.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { projects } from '../data/projects';
+import Icon from '../components/Icon.astro';
 
 const notes = (await getCollection('notes')).sort((left, right) => left.data.order - right.data.order);
 ---
@@ -27,7 +28,7 @@ const notes = (await getCollection('notes')).sort((left, right) => left.data.ord
           </p>
           <div class="hero__actions">
             <a class="action-link action-link--primary" href="#work">
-              Explore selected work <span aria-hidden="true">↘</span>
+              Explore selected work <Icon name="arrow-down-right" size={17} />
             </a>
             <a class="action-link" href="#contact">Get in touch</a>
           </div>
@@ -43,7 +44,7 @@ const notes = (await getCollection('notes')).sort((left, right) => left.data.ord
           <p class="hero-art__caption">A little structure.<br />A lot of intention.</p>
         </div>
       </div>
-      <a class="hero__scroll" href="#work"><span>Scroll to explore</span><span aria-hidden="true">↓</span></a>
+      <a class="hero__scroll" href="#work"><span>Scroll to explore</span><Icon name="arrow-down" size={15} /></a>
     </section>
 
     <section class="work-section site-width" id="work" aria-labelledby="work-title">
@@ -58,7 +59,7 @@ const notes = (await getCollection('notes')).sort((left, right) => left.data.ord
         {projects.map((project, index) => <ProjectRow project={project} index={index + 1} />)}
       </ol>
       <a class="text-link work-section__github" href="https://github.com/erolsenol" target="_blank" rel="noreferrer">
-        More experiments on GitHub <span aria-hidden="true">↗</span>
+        More experiments on GitHub <Icon name="arrow-up-right" size={14} />
       </a>
     </section>
 
@@ -95,7 +96,7 @@ const notes = (await getCollection('notes')).sort((left, right) => left.data.ord
           <li><span>02</span> Design systems</li>
           <li><span>03</span> Web performance</li>
         </ul>
-        <p class="about-section__location"><span aria-hidden="true">↗</span> Istanbul, Türkiye</p>
+        <p class="about-section__location"><Icon name="map-pin" size={15} /> Istanbul, Türkiye</p>
       </div>
     </section>
 
@@ -107,10 +108,10 @@ const notes = (await getCollection('notes')).sort((left, right) => left.data.ord
       <div class="contact-section__details">
         <p>For product work, collaboration, or a technical conversation, I’d love to hear from you.</p>
         <ul>
-          <li><a href="mailto:erolsnl@gmail.com">Email me <span aria-hidden="true">↗</span></a></li>
+          <li><a href="mailto:erolsnl@gmail.com"><Icon name="envelope-simple" size={16} /> Email me</a></li>
           <li>
             <a href="https://www.linkedin.com/in/erol-senol/" target="_blank" rel="noreferrer">
-              Say hello on LinkedIn <span aria-hidden="true">↗</span>
+              Say hello on LinkedIn <Icon name="arrow-up-right" size={14} />
             </a>
           </li>
         </ul>
