@@ -13,7 +13,7 @@ const { Content } = await render(note);
 
 <BaseLayout title={note.data.title} description={note.data.description} active="notes">
   <main id="main-content" class="article-main site-width">
-    <a class="article-back text-link" href="/#notes">← Back to Notes</a>
+    <a class="article-back" href="/#notes"><span aria-hidden="true">←</span> Back to notes</a>
     <article class="article-content">
       <header class="article-header">
         <p class="article-header__project">{note.data.project}</p>

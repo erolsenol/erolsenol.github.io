@@ -9,9 +9,10 @@ const { title, description, href } = Astro.props;
 ---
 
 <li class="note-row">
-  <div>
+  <div class="note-row__number" aria-hidden="true">↳</div>
+  <div class="note-row__body">
     <h3><a href={href}>{title}</a></h3>
     <p>{description}</p>
   </div>
-  <a class="note-row__action" href={href}>Read note <span aria-hidden="true">↗</span></a>
+  <a class="note-row__action" href={href} aria-label={`Read ${title}`}><span>Read note</span><span aria-hidden="true">↗</span></a>
 </li>

@@ -11,6 +11,12 @@ test('home page includes portfolio sections, contact links, and metadata', async
   }
   assert.ok(html.includes('<title>Erol Senol — Frontend Engineer</title>'));
   assert.match(html, /property="og:title"/);
+  assert.match(html, /property="og:image" content="https:\/\/erolsenol\.github\.io\/social-card\.svg"/);
+  assert.match(html, /name="twitter:card" content="summary_large_image"/);
+  for (const visual of ['mailer', 'workspace', 'catalog']) {
+    assert.ok(html.includes(`data-visual="${visual}"`), `missing project visual: ${visual}`);
+  }
+  assert.match(html, /Thoughtful<br\s*\/?>(?:\s|&nbsp;)*by <em>design\.<\/em>/);
 });
 
 test('note routes, robots, and sitemap are emitted', async () => {
