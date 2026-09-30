@@ -1,0 +1,60 @@
+---
+import arrowDown from '@phosphor-icons/core/regular/arrow-down.svg?raw';
+import arrowDownRight from '@phosphor-icons/core/regular/arrow-down-right.svg?raw';
+import arrowElbowDownRight from '@phosphor-icons/core/regular/arrow-elbow-down-right.svg?raw';
+import arrowLeft from '@phosphor-icons/core/regular/arrow-left.svg?raw';
+import arrowUpRight from '@phosphor-icons/core/regular/arrow-up-right.svg?raw';
+import envelopeSimple from '@phosphor-icons/core/regular/envelope-simple.svg?raw';
+import mapPin from '@phosphor-icons/core/regular/map-pin.svg?raw';
+import paperPlaneTilt from '@phosphor-icons/core/regular/paper-plane-tilt.svg?raw';
+import plus from '@phosphor-icons/core/regular/plus.svg?raw';
+
+const icons = {
+  'arrow-down': arrowDown,
+  'arrow-down-right': arrowDownRight,
+  'arrow-elbow-down-right': arrowElbowDownRight,
+  'arrow-left': arrowLeft,
+  'arrow-up-right': arrowUpRight,
+  'envelope-simple': envelopeSimple,
+  'map-pin': mapPin,
+  'paper-plane-tilt': paperPlaneTilt,
+  plus,
+} as const;
+
+interface Props {
+  name: keyof typeof icons;
+  size?: number;
+  label?: string;
+  class?: string;
+}
+
+const { name, size = 16, label, class: className } = Astro.props;
+---
+
+<span
+  class:list={['icon', className]}
+  style={`--icon-size: ${size}px`}
+  aria-hidden={label ? undefined : 'true'}
+  aria-label={label}
+  role={label ? 'img' : undefined}
+>
+  <Fragment set:html={icons[name]} />
+</span>
+
+<style>
+  .icon {
+    display: inline-flex;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    flex: 0 0 var(--icon-size);
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+  }
+
+  .icon :global(svg) {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+</style>
