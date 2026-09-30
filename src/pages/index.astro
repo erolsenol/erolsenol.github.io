@@ -5,6 +5,7 @@ import ProjectRow from '../components/ProjectRow.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { projects } from '../data/projects';
 import Icon from '../components/Icon.astro';
+import ExpertiseSection from '../components/ExpertiseSection.astro';
 
 const notes = (await getCollection('notes')).sort((left, right) => left.data.order - right.data.order);
 ---
@@ -62,6 +63,8 @@ const notes = (await getCollection('notes')).sort((left, right) => left.data.ord
         More experiments on GitHub <Icon name="arrow-up-right" size={14} />
       </a>
     </section>
+
+    <ExpertiseSection />
 
     <section class="notes-section site-width" id="notes" aria-labelledby="notes-title">
       <div class="notes-section__intro section-intro">

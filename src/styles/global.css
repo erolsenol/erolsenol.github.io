@@ -602,6 +602,18 @@ a:focus-visible {
   letter-spacing: 0.08em;
 }
 
+.project-card__category {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  color: rgb(40 39 34 / 62%);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-align: right;
+  text-transform: uppercase;
+}
+
 .project-card__body {
   padding: 20px 2px 0;
 }
@@ -1548,6 +1560,13 @@ a:focus-visible {
 
   .project-card__art {
     aspect-ratio: 1.22;
+  }
+
+  .project-card__category {
+    top: 15px;
+    right: 14px;
+    max-width: 65%;
+    font-size: 8px;
   }
 
   .project-card__body {
