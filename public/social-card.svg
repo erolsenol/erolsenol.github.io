@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f5f1e9" />
+  <path d="M0 0h16v630H0z" fill="#c44d36" />
+  <circle cx="955" cy="325" r="245" fill="#ebe5da" />
+  <circle cx="955" cy="325" r="185" fill="none" stroke="#282722" stroke-opacity=".14" />
+  <circle cx="955" cy="325" r="132" fill="#c44d36" />
+  <text x="885" y="390" fill="#f5f1e9" font-family="Georgia,serif" font-size="250" font-style="italic" letter-spacing="-22">e</text>
+  <circle cx="1055" cy="393" r="10" fill="#282722" />
+  <text x="90" y="122" fill="#963c2c" font-family="Arial,sans-serif" font-size="20" font-weight="700" letter-spacing="4">FRONTEND ENGINEER · ISTANBUL, TÜRKİYE</text>
+  <text x="84" y="315" fill="#282722" font-family="Georgia,serif" font-size="112" letter-spacing="-5">Thoughtful</text>
+  <text x="84" y="430" fill="#c44d36" font-family="Georgia,serif" font-size="130" font-style="italic" letter-spacing="-5">by design.</text>
+  <path d="M90 500h510" stroke="#d8d1c5" stroke-width="2" />
+  <text x="90" y="550" fill="#716e65" font-family="Arial,sans-serif" font-size="24">Interfaces, systems, and the details that make them work.</text>
+</svg>

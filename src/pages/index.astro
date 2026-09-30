@@ -14,36 +14,58 @@ const notes = (await getCollection('notes')).sort((left, right) => left.data.ord
 >
   <main id="main-content">
     <section class="hero site-width" aria-labelledby="hero-title">
-      <div class="hero__copy">
-        <h1 id="hero-title">Erol Senol</h1>
-        <p class="hero__role">Frontend Engineer</p>
-        <p class="hero__summary">
-          I build thoughtful frontend systems with TypeScript, React, and Vue.
-        </p>
-        <div class="hero__actions">
-          <a class="action-link action-link--primary" href="#work">
-            Explore selected work <span aria-hidden="true">→</span>
-          </a>
-          <a class="action-link" href="#contact">
-            Get in touch <span aria-hidden="true">→</span>
-          </a>
+      <div class="hero__eyebrow">
+        <span class="eyebrow-mark" aria-hidden="true"></span>
+        <p>Frontend engineer <span>·</span> Istanbul, Türkiye</p>
+      </div>
+      <div class="hero__grid">
+        <div class="hero__copy">
+          <p class="hero__kicker">Digital craft, grounded in code.</p>
+          <h1 id="hero-title">Thoughtful<br />{' '}by <em>design.</em></h1>
+          <p class="hero__summary">
+            I build clear, dependable frontend systems with TypeScript, React, and Vue.
+          </p>
+          <div class="hero__actions">
+            <a class="action-link action-link--primary" href="#work">
+              Explore selected work <span aria-hidden="true">↘</span>
+            </a>
+            <a class="action-link" href="#contact">Get in touch</a>
+          </div>
+        </div>
+        <div class="hero__art" aria-hidden="true">
+          <div class="hero-art__frame">
+            <div class="hero-art__ring hero-art__ring--outer"></div>
+            <div class="hero-art__ring hero-art__ring--inner"></div>
+            <span class="hero-art__letter">e<span>.</span></span>
+            <span class="hero-art__orbit-label">INTERFACES&nbsp; / &nbsp;SYSTEMS&nbsp; / &nbsp;DETAIL</span>
+            <span class="hero-art__index">EST.<br />2020</span>
+          </div>
+          <p class="hero-art__caption">A little structure.<br />A lot of intention.</p>
         </div>
       </div>
+      <a class="hero__scroll" href="#work"><span>Scroll to explore</span><span aria-hidden="true">↓</span></a>
     </section>
 
     <section class="work-section site-width" id="work" aria-labelledby="work-title">
       <div class="work-section__intro">
-        <h2 class="section-title" id="work-title">Selected work</h2>
-        <p>A selection of public projects, built around clear interfaces and dependable foundations.</p>
+        <div>
+          <p class="section-eyebrow">A few things I’ve made</p>
+          <h2 class="section-title" id="work-title">Selected work<span class="section-period">.</span></h2>
+        </div>
+        <p>Independent projects exploring useful tools, thoughtful interfaces, and the systems behind them.</p>
       </div>
       <ol class="project-list">
-        {projects.map((project) => <ProjectRow project={project} />)}
+        {projects.map((project, index) => <ProjectRow project={project} index={index + 1} />)}
       </ol>
+      <a class="text-link work-section__github" href="https://github.com/erolsenol" target="_blank" rel="noreferrer">
+        More experiments on GitHub <span aria-hidden="true">↗</span>
+      </a>
     </section>
 
     <section class="notes-section site-width" id="notes" aria-labelledby="notes-title">
-      <div class="notes-section__intro">
-        <h2 class="section-title" id="notes-title">Notes</h2>
+      <div class="notes-section__intro section-intro">
+        <p class="section-eyebrow">Field notes</p>
+        <h2 class="section-title" id="notes-title">Thinking<br />{' '}out loud<span class="section-period">.</span></h2>
         <p>Short notes on tools, systems, and the decisions that shape them.</p>
       </div>
       <ol class="note-list">
@@ -59,31 +81,36 @@ const notes = (await getCollection('notes')).sort((left, right) => left.data.ord
 
     <section class="about-section site-width" id="about" aria-labelledby="about-title">
       <div class="about-section__copy">
-        <h2 class="section-title" id="about-title">About</h2>
+        <p class="section-eyebrow">A bit about me</p>
+        <h2 class="section-title" id="about-title">Curious<br />{' '}<em>by nature.</em></h2>
         <p>
           I’m Erol, a frontend engineer working with TypeScript, React, and Vue. I’m interested in
           performance, design systems, and scalable frontend architecture.
         </p>
       </div>
       <div class="about-section__focus">
-        <p class="about-section__location">Istanbul, Türkiye</p>
+        <p class="about-section__label">Currently drawn to</p>
         <ul>
-          <li>Frontend architecture</li>
-          <li>Design systems</li>
-          <li>Web performance</li>
+          <li><span>01</span> Frontend architecture</li>
+          <li><span>02</span> Design systems</li>
+          <li><span>03</span> Web performance</li>
         </ul>
+        <p class="about-section__location"><span aria-hidden="true">↗</span> Istanbul, Türkiye</p>
       </div>
     </section>
 
     <section class="contact-section site-width" id="contact" aria-labelledby="contact-title">
-      <h2 class="section-title" id="contact-title">Get in touch</h2>
+      <div class="contact-section__intro">
+        <p class="section-eyebrow">Have something in mind?</p>
+        <h2 class="section-title" id="contact-title">Let’s make<br />{' '}it <em>matter.</em></h2>
+      </div>
       <div class="contact-section__details">
-        <p>For product work, collaboration, or a technical conversation, reach me by email or LinkedIn.</p>
+        <p>For product work, collaboration, or a technical conversation, I’d love to hear from you.</p>
         <ul>
-          <li><a href="mailto:erolsnl@gmail.com">Email <span aria-hidden="true">↗</span></a></li>
+          <li><a href="mailto:erolsnl@gmail.com">Email me <span aria-hidden="true">↗</span></a></li>
           <li>
             <a href="https://www.linkedin.com/in/erol-senol/" target="_blank" rel="noreferrer">
-              LinkedIn <span aria-hidden="true">↗</span>
+              Say hello on LinkedIn <span aria-hidden="true">↗</span>
             </a>
           </li>
         </ul>

@@ -3,16 +3,52 @@ import type { Project } from '../data/projects';
 
 interface Props {
   project: Project;
+  index: number;
 }
 
-const { project } = Astro.props;
+const { project, index } = Astro.props;
 ---
 
-<li class="project-row">
-  <h3 class="project-row__name">{project.name}</h3>
-  <p class="project-row__description">{project.description}</p>
-  <p class="project-row__technologies">{project.technologies.join(' · ')}</p>
-  <a class="project-row__link" href={project.repositoryUrl} target="_blank" rel="noreferrer">
-    View repository <span aria-hidden="true">↗</span>
+<li class="project-card" data-visual={project.visual}>
+  <a class="project-card__link" href={project.repositoryUrl} target="_blank" rel="noreferrer" aria-label={`${project.name} on GitHub (opens in a new tab)`}>
+    <div class="project-card__art" aria-hidden="true">
+      {project.visual === 'mailer' && (
+        <div class="mailer-art">
+          <div class="mailer-art__back"></div>
+          <div class="mailer-art__window">
+            <div class="mailer-art__top"><span></span><span></span><span></span><b>typedmailer</b></div>
+            <div class="mailer-art__message"><span class="mailer-art__icon">↗</span><span class="mailer-art__line"></span><span class="mailer-art__line mailer-art__line--short"></span></div>
+          </div>
+          <span class="mailer-art__label">ONE API · 7 PROVIDERS</span>
+        </div>
+      )}
+      {project.visual === 'workspace' && (
+        <div class="workspace-art">
+          <div class="workspace-art__orbit workspace-art__orbit--one"></div>
+          <div class="workspace-art__orbit workspace-art__orbit--two"></div>
+          <span class="workspace-art__core">/</span>
+          <span class="workspace-art__node workspace-art__node--apps">apps</span>
+          <span class="workspace-art__node workspace-art__node--packages">packages</span>
+          <span class="workspace-art__node workspace-art__node--docs">docs</span>
+        </div>
+      )}
+      {project.visual === 'catalog' && (
+        <div class="catalog-art">
+          <div class="catalog-art__sidebar"><b>studio</b><span></span><span></span><span></span><i></i></div>
+          <div class="catalog-art__main"><div class="catalog-art__bar"><b>Products</b><span>＋ Add product</span></div><div class="catalog-art__tiles"><i></i><i></i><i></i></div><div class="catalog-art__lines"><i></i><i></i><i></i></div></div>
+        </div>
+      )}
+      <span class="project-card__index">0{index}</span>
+    </div>
+    <div class="project-card__body">
+      <div class="project-card__heading">
+        <h3 class="project-card__name">{project.name}</h3>
+        <span class="project-card__arrow" aria-hidden="true">↗</span>
+      </div>
+      <p class="project-card__description">{project.description}</p>
+      <ul class="project-card__technologies" aria-label="Technologies">
+        {project.technologies.map((technology) => <li>{technology}</li>)}
+      </ul>
+    </div>
   </a>
 </li>

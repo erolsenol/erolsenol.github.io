@@ -13,14 +13,17 @@ const links = [
 
 <header class="site-header">
   <div class="site-width site-header__inner">
-    <a class="site-header__brand" href="/" aria-label="Erol Senol home">Erol Senol</a>
+    <a class="site-header__brand" href="/" aria-label="Erol Senol home">
+      <span class="site-header__monogram" aria-hidden="true">es</span>
+      <span>Erol Senol</span>
+    </a>
     <nav class="site-nav" aria-label="Main navigation">
       {links.map((link) => (
         <a href={link.href} aria-current={active === link.key ? 'location' : undefined}>
           {link.label}
         </a>
       ))}
-      <a class="site-nav__contact" href="/#contact">Contact</a>
+      <a class="site-nav__contact" href="/#contact">Let’s talk <span aria-hidden="true">↗</span></a>
     </nav>
   </div>
 </header>
