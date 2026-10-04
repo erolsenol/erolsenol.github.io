@@ -4,7 +4,8 @@ export interface Project {
   readonly category: string;
   readonly technologies: readonly string[];
   readonly repositoryUrl: `https://github.com/${string}`;
-  readonly visual: 'mailer' | 'workspace' | 'catalog';
+  readonly visual: 'mailer' | 'workspace' | 'catalog' | 'image';
+  readonly caseStudySlug?: string;
 }
 
 export const projects = [
@@ -15,6 +16,7 @@ export const projects = [
     technologies: ['TypeScript', 'Node.js', 'Open source'],
     repositoryUrl: 'https://github.com/erolsenol/typedmailer',
     visual: 'mailer',
+    caseStudySlug: 'typedmailer',
   },
   {
     name: 'Frontend Production Starter',
@@ -23,6 +25,16 @@ export const projects = [
     technologies: ['Next.js', 'TypeScript', 'Turborepo'],
     repositoryUrl: 'https://github.com/erolsenol/frontend-production-starter',
     visual: 'workspace',
+    caseStudySlug: 'frontend-production-starter',
+  },
+  {
+    name: 'image-craft-service',
+    description: 'A self-hosted image API with typed clients, bounded processing, cache controls, and protected remote fetching.',
+    category: 'Image processing API',
+    technologies: ['Node.js', 'Fastify', 'Sharp'],
+    repositoryUrl: 'https://github.com/erolsenol/image-craft-service',
+    visual: 'image',
+    caseStudySlug: 'image-craft-service',
   },
   {
     name: 'Vue Prisma Product App',

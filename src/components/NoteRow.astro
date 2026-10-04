@@ -5,9 +5,16 @@ interface Props {
   title: string;
   description: string;
   href: string;
+  publishedAt: string;
 }
 
-const { title, description, href } = Astro.props;
+const { title, description, href, publishedAt } = Astro.props;
+const displayDate = new Date(`${publishedAt}T12:00:00Z`).toLocaleDateString('en', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+  timeZone: 'UTC',
+});
 ---
 
 <li class="note-row">
@@ -15,6 +22,7 @@ const { title, description, href } = Astro.props;
   <div class="note-row__body">
     <h3><a href={href}>{title}</a></h3>
     <p>{description}</p>
+    <time datetime={publishedAt}>{displayDate}</time>
   </div>
   <a class="note-row__action" href={href} aria-label={`Read ${title}`}><span>Read note</span><Icon name="arrow-up-right" size={13} /></a>
 </li>

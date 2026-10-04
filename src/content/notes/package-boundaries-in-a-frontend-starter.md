@@ -3,6 +3,7 @@ title: Package boundaries in a frontend starter
 description: How reusable workspace packages can make a product foundation easier to extend.
 order: 2
 project: Frontend Production Starter
+publishedAt: '2026-09-29'
 ---
 
 A frontend starter can save time at the beginning of a project, but its structure also shapes later changes. When shared code has no clear owner, each new feature can make the starting point harder to understand.

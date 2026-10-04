@@ -1,5 +1,6 @@
 import { getCollection } from 'astro:content';
 import type { APIRoute } from 'astro';
+import { caseStudies } from '../data/case-studies';
 
 export const GET: APIRoute = async ({ site }) => {
   if (!site) {
@@ -10,6 +11,7 @@ export const GET: APIRoute = async ({ site }) => {
   const urls = [
     site.href,
     ...notes.map(({ id }) => new URL(`/notes/${id}/`, site).href),
+    ...caseStudies.map(({ slug }) => new URL(`/work/${slug}/`, site).href),
   ];
 
   const entries = urls.map((url) => `  <url><loc>${url}</loc></url>`).join('\n');

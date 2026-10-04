@@ -1,0 +1,60 @@
+---
+import { caseStudies } from '../../data/case-studies';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+
+export function getStaticPaths() {
+  return caseStudies.map((caseStudy) => ({
+    params: { slug: caseStudy.slug },
+    props: { caseStudy },
+  }));
+}
+
+const { caseStudy } = Astro.props;
+const displayDate = new Date(`${caseStudy.publishedAt}T12:00:00Z`).toLocaleDateString('en', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  timeZone: 'UTC',
+});
+---
+
+<BaseLayout title={caseStudy.title} description={caseStudy.description} active="work">
+  <main id="main-content" class="article-main site-width">
+    <a class="article-back" href="/#work"><Icon name="arrow-left" size={15} /> Back to selected work</a>
+    <article class="article-content">
+      <header class="article-header">
+        <p class="article-header__project">{caseStudy.project} · Case study</p>
+        <h1>{caseStudy.title}</h1>
+        <p class="article-header__description">{caseStudy.description}</p>
+        <div class="article-header__meta">
+          <time datetime={caseStudy.publishedAt}>{displayDate}</time>
+          <ul class="project-card__technologies" aria-label="Technologies">
+            {caseStudy.technologies.map((technology) => <li>{technology}</li>)}
+          </ul>
+        </div>
+      </header>
+      <div class="prose case-study-content">
+        <section>
+          <h2>Challenge</h2>
+          <p>{caseStudy.challenge}</p>
+        </section>
+        <section>
+          <h2>Approach</h2>
+          <ul>
+            {caseStudy.approach.map((decision) => <li>{decision}</li>)}
+          </ul>
+        </section>
+        <section>
+          <h2>What the implementation shows</h2>
+          <ul>
+            {caseStudy.evidence.map((item) => <li>{item}</li>)}
+          </ul>
+        </section>
+        <a class="case-study-source" href={caseStudy.repositoryUrl} target="_blank" rel="noreferrer">
+          Explore the source on GitHub <Icon name="arrow-up-right" size={14} />
+        </a>
+      </div>
+    </article>
+  </main>
+</BaseLayout>

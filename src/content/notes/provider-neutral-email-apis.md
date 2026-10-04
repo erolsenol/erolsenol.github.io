@@ -3,6 +3,7 @@ title: Provider-neutral email APIs in TypeScript
 description: A look at a shared mailer contract, provider adapters, optional SDKs, and inbound webhooks.
 order: 1
 project: TypedMailer
+publishedAt: '2026-09-29'
 ---
 
 Email integrations often begin with a provider SDK. That can be a good fit for a small application, but it also ties application code to one provider's request and response shapes.

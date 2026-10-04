@@ -9,6 +9,7 @@ const notes = defineCollection({
     description: z.string(),
     order: z.number().int().positive(),
     project: z.string(),
+    publishedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
   }),
 });
 

@@ -7,12 +7,12 @@ import { projects } from '../data/projects';
 import Icon from '../components/Icon.astro';
 import ExpertiseSection from '../components/ExpertiseSection.astro';
 
-const notes = (await getCollection('notes')).sort((left, right) => left.data.order - right.data.order);
+const notes = (await getCollection('notes')).sort((left, right) => right.data.publishedAt.localeCompare(left.data.publishedAt));
 ---
 
 <BaseLayout
   title="Erol Senol"
-  description="Frontend engineer building thoughtful frontend systems with TypeScript, React, and Vue."
+  description="Frontend engineer building multilingual, data-rich products and dependable frontend systems with TypeScript, React, Next.js, Vue, and Nuxt."
 >
   <main id="main-content">
     <section class="hero site-width" aria-labelledby="hero-title">
@@ -25,7 +25,7 @@ const notes = (await getCollection('notes')).sort((left, right) => left.data.ord
           <p class="hero__kicker">Digital craft, grounded in code.</p>
           <h1 id="hero-title">Thoughtful<br />{' '}by <em>design.</em></h1>
           <p class="hero__summary">
-            I build clear, dependable frontend systems with TypeScript, React, and Vue.
+            I build multilingual products and dependable frontend systems with TypeScript, React, Next.js, Vue, and Nuxt.
           </p>
           <div class="hero__actions">
             <a class="action-link action-link--primary" href="#work">
@@ -54,7 +54,7 @@ const notes = (await getCollection('notes')).sort((left, right) => left.data.ord
           <p class="section-eyebrow">A few things I’ve made</p>
           <h2 class="section-title" id="work-title">Selected work<span class="section-period">.</span></h2>
         </div>
-        <p>Independent projects exploring useful tools, thoughtful interfaces, and the systems behind them.</p>
+        <p>Product foundations, developer tools, and service integrations, with the decisions behind each one made visible.</p>
       </div>
       <ol class="project-list">
         {projects.map((project, index) => <ProjectRow project={project} index={index + 1} />)}
@@ -78,6 +78,7 @@ const notes = (await getCollection('notes')).sort((left, right) => left.data.ord
             title={note.data.title}
             description={note.data.description}
             href={`/notes/${note.id}/`}
+            publishedAt={note.data.publishedAt}
           />
         ))}
       </ol>
@@ -88,8 +89,10 @@ const notes = (await getCollection('notes')).sort((left, right) => left.data.ord
         <p class="section-eyebrow">A bit about me</p>
         <h2 class="section-title" id="about-title">Curious<br />{' '}<em>by nature.</em></h2>
         <p>
-          I’m Erol, a frontend engineer working with TypeScript, React, and Vue. I’m interested in
-          performance, design systems, and scalable frontend architecture.
+          I’m Erol, a frontend engineer working across product interfaces and the systems behind them.
+          I build with React and Vue, and I also work on Node.js tools and provider integrations. I keep
+          shared UI and package boundaries explicit, with examples and checks that make the architecture
+          easier to understand and extend.
         </p>
       </div>
       <div class="about-section__focus">

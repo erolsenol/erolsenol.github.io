@@ -8,10 +8,12 @@ interface Props {
 }
 
 const { project, index } = Astro.props;
+const href = project.caseStudySlug ? `/work/${project.caseStudySlug}/` : project.repositoryUrl;
+const opensNewTab = !project.caseStudySlug;
 ---
 
 <li class="project-card" data-visual={project.visual}>
-  <a class="project-card__link" href={project.repositoryUrl} target="_blank" rel="noreferrer" aria-label={`${project.name} on GitHub (opens in a new tab)`}>
+  <a class="project-card__link" href={href} target={opensNewTab ? '_blank' : undefined} rel={opensNewTab ? 'noreferrer' : undefined} aria-label={project.caseStudySlug ? `Read the ${project.name} case study` : `${project.name} on GitHub (opens in a new tab)`}>
     <div class="project-card__art" aria-hidden="true">
       {project.visual === 'mailer' && (
         <div class="mailer-art">
@@ -39,6 +41,16 @@ const { project, index } = Astro.props;
           <div class="catalog-art__main"><div class="catalog-art__bar"><b>Products</b><span><Icon name="plus" size={8} /> Add product</span></div><div class="catalog-art__tiles"><i></i><i></i><i></i></div><div class="catalog-art__lines"><i></i><i></i><i></i></div></div>
         </div>
       )}
+      {project.visual === 'image' && (
+        <div class="image-art">
+          <div class="image-art__frame">
+            <span class="image-art__sun"></span>
+            <span class="image-art__hill image-art__hill--back"></span>
+            <span class="image-art__hill image-art__hill--front"></span>
+          </div>
+          <div class="image-art__flow"><span>source</span><i></i><span>transform</span><i></i><span>cache</span></div>
+        </div>
+      )}
       <span class="project-card__index">0{index}</span>
       <span class="project-card__category">{project.category}</span>
     </div>
@@ -53,4 +65,9 @@ const { project, index } = Astro.props;
       </ul>
     </div>
   </a>
+  {project.caseStudySlug && (
+    <a class="project-card__source" href={project.repositoryUrl} target="_blank" rel="noreferrer">
+      View source <Icon name="arrow-up-right" size={13} />
+    </a>
+  )}
 </li>
