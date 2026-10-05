@@ -17,6 +17,9 @@ test('home page includes portfolio sections, contact links, and metadata', async
     assert.ok(html.includes(`data-visual="${visual}"`), `missing project visual: ${visual}`);
   }
   assert.ok(html.includes('image-craft-service'));
+  for (const repository of ['market-minimum-price-search-extension', 'deploy-witness', 'nodejs-file-server']) {
+    assert.ok(html.includes(`github.com/erolsenol/${repository}`), `missing additional project: ${repository}`);
+  }
   assert.ok(html.includes('/work/image-craft-service/'));
   assert.ok(html.includes('<time datetime="2026-10-04">Oct 4, 2026</time>'));
   assert.match(html, /Thoughtful<br\s*\/?>(?:\s|&nbsp;)*by <em>design\.<\/em>/);
