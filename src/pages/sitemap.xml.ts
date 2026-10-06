@@ -10,6 +10,7 @@ export const GET: APIRoute = async ({ site }) => {
   const notes = await getCollection('notes');
   const urls = [
     site.href,
+    new URL("/releases/", site).href,
     ...notes.map(({ id }) => new URL(`/notes/${id}/`, site).href),
     ...caseStudies.map(({ slug }) => new URL(`/work/${slug}/`, site).href),
   ];

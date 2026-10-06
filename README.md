@@ -26,3 +26,5 @@ npm run test:output
 ```
 
 GitHub Actions runs checks for pull requests and deploys the generated `dist/` site to GitHub Pages from `main`.
+
+Maintenance source-release entries live in `src/data/releases.ts` and are rendered at `/releases/`. Update entries only after the linked GitHub releases exist.

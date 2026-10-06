@@ -40,3 +40,14 @@ test('note routes, robots, and sitemap are emitted', async () => {
   assert.match(sitemap, /https:\/\/erolsenol\.github\.io\//);
   assert.match(sitemap, /https:\/\/erolsenol\.github\.io\/work\/image-craft-service\//);
 });
+
+test('maintenance log links each source release and is discoverable', async () => {
+  const html = await read('releases/index.html');
+  const repositories = ["deploy-witness", "frontend-production-starter", "image-craft-service", "market-minimum-price-search-extension", "monaco-language-client", "movie-website-project", "node-express-movie-api", "nodejs-file-server", "ogame-bot-extension", "puppeteer-fetch-movie", "python", "react-to-do-app", "typedmailer", "vue-jsonplaceholder", "vue-prisma-product-app"];
+  for (const repository of repositories) {
+    assert.ok(html.includes(`https://github.com/erolsenol/${repository}/releases/tag/v`), `missing release: ${repository}`);
+  }
+  assert.match(html, /<time\b[^>]*datetime="2026-10-06"/);
+  assert.ok((await read('index.html')).includes('href="/releases/"'));
+  assert.ok((await read('sitemap.xml')).includes('https://erolsenol.github.io/releases/'));
+});
