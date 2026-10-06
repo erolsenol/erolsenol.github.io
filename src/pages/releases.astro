@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { sourceReleases } from '../data/releases';
+---
+
+<BaseLayout title="Public project maintenance" description="Maintenance releases across my public projects, with direct links to changes, validation notes and downloadable source.">
+  <main id="main-content" class="article-main site-width">
+    <a class="article-back" href="/#work"><Icon name="arrow-left" size={15} /> Back to selected work</a>
+    <article class="article-content">
+      <header class="article-header">
+        <p class="article-header__project">Open source · Maintenance log</p>
+        <h1>Small fixes.<br />Dependable foundations.</h1>
+        <p class="article-header__description">Storage recovery, request cleanup, safer input boundaries and regression tests across my public projects.</p>
+        <div class="article-header__meta"><time datetime="2026-10-06">October 6, 2026</time></div>
+      </header>
+      <div class="prose">
+        <p>Each source release includes its changes and validation scope. Release assets and package publication details are listed on the linked GitHub pages.</p>
+        <ul class="maintenance-list">
+          {sourceReleases.map(({ repository, version, summary }) => (
+            <li>
+              <a href={`https://github.com/erolsenol/${repository}/releases/tag/v${version}`}><strong>{repository}</strong> · v{version}</a>
+              <p>{summary}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </article>
+  </main>
+</BaseLayout>
+
+<style>
+  .maintenance-list { list-style: none; padding: 0; }
+  .maintenance-list li { border-top: 1px solid var(--color-border, #d9d4c9); padding: 1.25rem 0; margin: 0; }
+  .maintenance-list a { overflow-wrap: anywhere; }
+  .maintenance-list p { margin: .4rem 0 0; }
+</style>
